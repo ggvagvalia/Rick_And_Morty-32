@@ -9,25 +9,32 @@ import SwiftUI
 
 struct CharactersListView: View {
     var name: String
+    var image: String
+    
     
     var body: some View {
 //        ZStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center, spacing: 8) {
+                ImageView(imageURL: image)
 //                Image("Example")
 //                    .resizable()
-//                    .frame(width: 160, height: 180)
-//                    .cornerRadius(20)
+                    .frame(width: 170, height: 185)
+                    .cornerRadius(20)
+                Spacer()
                 Text(name)
                     .font(.title3)
                     .bold()
+                    .padding(.bottom, 20)
             }
-            .padding(.vertical, 8)
+//            .padding()
+//            .padding(.vertical, 8)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
                    .background(Color.secondary.opacity(0.1))
                    .cornerRadius(10)
 //        }
     }
 }
-//
+
 //#Preview {
-//    CharactersListView()
+//    CharactersListView(name: <#String#>, image: <#String#>)
 //}

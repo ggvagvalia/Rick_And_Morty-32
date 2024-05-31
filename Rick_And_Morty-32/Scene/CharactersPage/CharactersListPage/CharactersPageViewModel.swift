@@ -9,15 +9,11 @@ import SwiftUI
 import NetworkingService
 
 class CharactersPageViewModel: ObservableObject {
-    let networking = NetworkingService.shared
     @Published  var characters: [Characters]? = []
-    
-    //    var charactersPageModel: [CharactersPageModel]? = []
-    let urlString = "https://rickandmortyapi.com/api/character"
-    //    let urlString = "https://rickandmortyapi.com/api/character/1,2,3"
     @State private var isLoading = false
+    let networking = NetworkingService.shared
+    let urlString = "https://rickandmortyapi.com/api/character"
     
-    //    
     init() {
         loadData()
     }

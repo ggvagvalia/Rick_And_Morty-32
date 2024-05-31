@@ -20,7 +20,6 @@ struct MainPage: View {
                     Text("Characters")
                 }
                 .tag(0)
-            
             EpisodesPage()
                 .tabItem {
                     Image(systemName: "movieclapper")
