@@ -23,9 +23,11 @@ struct CharactersEpisodesView: View {
                     .font(.system(size: 13))
             }
             Spacer()
+            
             Text("\(episode["name"] as? String ?? "")")
                 .font(.system(size: 16))
         }
+        .frame(height: 20)
     }
 }
 

@@ -25,7 +25,6 @@ class CharactersDetailedPageViewModel: ObservableObject {
                 networkingEpisodes.fetchData(urlString: episodeURL) { data in
                     if let data = data {
                         do {
-                            _ = JSONDecoder()
                             guard let episodeDictionary = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
                                 print("Failed to decode episode data")
                                 return
@@ -38,7 +37,6 @@ class CharactersDetailedPageViewModel: ObservableObject {
                         }
                     } else {
                         print("Failed to fetch episode data")
-                        
                     }
                 }
             }

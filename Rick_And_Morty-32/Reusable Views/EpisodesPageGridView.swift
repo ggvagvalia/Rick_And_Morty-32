@@ -9,8 +9,7 @@ import SwiftUI
 
 struct EpisodesPageGridView: View {
     var name: String
-    //    var airDate: String
-        var episode: String
+    var episode: String
     
     var body: some View {
         ZStack {
@@ -25,15 +24,11 @@ struct EpisodesPageGridView: View {
             }
             .frame(width: 175, height: 175)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-
             .padding(.vertical, 8)
             .background(Color.secondary.opacity(0.1))
             .clipShape(Circle())
         }
-//        .foregroundColor(Color.gray.opacity(0.3))
-
     }
-
 }
 
 //#Preview {

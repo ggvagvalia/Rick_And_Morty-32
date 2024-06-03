@@ -24,10 +24,6 @@ struct SearchPage: View {
     
     var body: some View {
         ZStack {
-            //            LinearGradient(
-            //                colors: [Color(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)).opacity(0.2), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.1)],
-            //                startPoint: .topLeading,
-            //                endPoint: .bottomTrailing)
             NavigationStack {
                 VStack {
                     Picker("Search", selection: $selectedPicker) {
@@ -41,15 +37,18 @@ struct SearchPage: View {
                     if isLoading {
                         ProgressView("Loading...")
                     } else {
-                        if selectedPicker == 0 {
-                            List(filteredCharacters, id: \.id) { character in
-                                CharactersListView(name: character.name, image: character.image)
-                            }
-                        } else {
-                            List(filteredEpisodes, id: \.id) { episode in
-                                EpisodesPageGridView(name: episode.name , episode: episode.episode)
+                        ScrollView {
+                            if selectedPicker == 0 {
+                                ForEach(filteredCharacters, id: \.id) { character in
+                                    CharactersListView(name: character.name, image: character.image)
+                                }
+                            } else {
+                                ForEach(filteredEpisodes, id: \.id) { episode in
+                                    EpisodesPageGridView(name: episode.name , episode: episode.episode)
+                                }
                             }
                         }
+                        
                     }
                 }
                 .navigationTitle("Search")

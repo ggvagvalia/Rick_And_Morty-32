@@ -14,6 +14,5 @@ struct EpisodesModel: Decodable, Hashable {
 struct Episodes: Decodable, Hashable {
     var id: Int
     var name: String
-//    var air_date: String
     var episode: String
 }

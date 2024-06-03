@@ -27,5 +27,4 @@ class EpisodesPageViewModel: ObservableObject {
             }
         }
     }
-    
 }

@@ -24,26 +24,4 @@ struct Characters: Hashable, Decodable {
     struct Origin: Hashable, Decodable {
         let name: String
     }
-    
 }
-
-
-//struct CharactersPageModel: Hashable, Decodable  {
-//
-//    let results: [Characters]
-//
-//    struct Characters: Hashable, Decodable {
-//        let id: Int
-//        let name: String
-//        let status: String
-//        let species: String
-//        let gender: String
-//        let origin: Origin
-//        let image: String
-//        let episodes: [String]
-//
-//        struct Origin: Hashable, Decodable {
-//            let name: String
-//        }
-//    }
-//}

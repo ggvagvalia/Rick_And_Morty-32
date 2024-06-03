@@ -12,7 +12,6 @@ struct EpisodesPage: View {
     @State private var isLoading = false
     @ObservedObject var episodesPage = EpisodesPageViewModel()
     
-    
     var body: some View {
         ZStack {
             LinearGradient(
@@ -21,9 +20,10 @@ struct EpisodesPage: View {
                 endPoint: .bottomTrailing)
             VStack {
                 Text("Episodes")
-                    .font(.system(size: 32))
+                    .font(.system(size: 25))
+                    .padding(.top, 60)
+                    .padding(.bottom, -10)
                     .bold()
-                    .safeAreaPadding(.top, 55)
                 if isLoading {
                     ProgressView("Loading...")
                 } else {
@@ -35,7 +35,6 @@ struct EpisodesPage: View {
                         }
                     }
                 }
-                
             }
         }
         .ignoresSafeArea()

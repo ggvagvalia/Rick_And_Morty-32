@@ -18,26 +18,37 @@ struct CharactersDetailsPage: View {
     }
     
     var body: some View {
-        // MARK: - Detailed Info View
-        VStack {
-            infoView(character: character)
-        }
-        .ignoresSafeArea()
-        Spacer()
         
-        // MARK: - Episodes Starred in View
-        List {
-            ForEach(charactersDetailedPageViewModel.episodes.indices, id: \.self) { index in
-                let episode = charactersDetailedPageViewModel.episodes[index]
-                CharactersEpisodesView(episode: episode)
-                    .navigationTitle("Starred In")
+        // MARK: - Detailed Info View
+        ZStack {
+            VStack {
+                infoView(character: character)
+                    .ignoresSafeArea()
+                
+                // MARK: - Episodes Starred in View
+                
+                ScrollView {
+                    LazyVStack(spacing: 20) {
+                        ForEach(charactersDetailedPageViewModel.episodes.indices, id: \.self) { index in
+                            let episode = charactersDetailedPageViewModel.episodes[index]
+                            CharactersEpisodesView(episode: episode)
+                                .padding(.top)
+                                .padding(.bottom)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(20)
+                        }
+                    }
+                }
+                .padding(.leading)
+                .padding(.trailing)
+                .onAppear {
+                    charactersDetailedPageViewModel.fetchEpisodes()
+                }
             }
-            .padding()
         }
-        .listStyle(.insetGrouped)
-        .onAppear {
-            charactersDetailedPageViewModel.fetchEpisodes()
-        }
+        .background(Color.secondary.opacity(0.1))
+        .ignoresSafeArea()
     }
 }
 
@@ -45,33 +56,37 @@ private struct infoView: View {
     let character: Characters
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
             ImageView(imageURL: character.image)
-            
-                .frame(width: 300, height: 270)
-            HStack {
-                Text("Character Name:")
-                    .bold()
-                Text("\(character.name)")
-            }
-            HStack {
-                Text("Status:")
-                    .bold()
-                Text("\(character.status)")
-            }
-            HStack {
-                Text("Species:")
-                    .bold()
-                Text("\(character.species)")
-            }
-            HStack {
-                Text("Origin:")
-                    .bold()
-                Text("\(character.origin.name)")
+                .frame(width: 200, height: 200)
+            VStack {
+                HStack {
+                    Text("Character Name:")
+                        .bold()
+                    Text("\(character.name)")
+                }
+                HStack {
+                    Text("Gender:")
+                        .bold()
+                    Text("\(character.gender)")
+                }
+                HStack {
+                    Text("Status:")
+                        .bold()
+                    Text("\(character.status)")
+                }
+                HStack {
+                    Text("Species:")
+                        .bold()
+                    Text("\(character.species)")
+                }
+                HStack {
+                    Text("Origin:")
+                        .bold()
+                    Text("\(character.origin.name)")
+                }
             }
         }
-        .frame(width: 300, height: 320)
-        
     }
 }
 
