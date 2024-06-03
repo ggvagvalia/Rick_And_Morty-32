@@ -40,7 +40,9 @@ struct SearchPage: View {
                         ScrollView {
                             if selectedPicker == 0 {
                                 ForEach(filteredCharacters, id: \.id) { character in
-                                    CharactersListView(name: character.name, image: character.image)
+                                    NavigationLink(destination: CharactersDetailsPage(character: character)) {
+                                        CharactersListView(name: character.name, image: character.image)
+                                    }
                                 }
                             } else {
                                 ForEach(filteredEpisodes, id: \.id) { episode in
@@ -59,6 +61,47 @@ struct SearchPage: View {
             }
         }
     }
+    
+    
+    //    search result-დან დეტალების გვერდზე გადასვლის გარეშე !!!
+    
+    //    var body: some View {
+    //        ZStack {
+    //            NavigationStack {
+    //                VStack {
+    //                    Picker("Search", selection: $selectedPicker) {
+    //                        ForEach(0..<pickerOptions.count, id: \.self) { index in
+    //                            Text(self.pickerOptions[index]).tag(index)
+    //                        }
+    //                    }
+    //                    .pickerStyle(SegmentedPickerStyle())
+    //                    .padding()
+    //
+    //                    if isLoading {
+    //                        ProgressView("Loading...")
+    //                    } else {
+    //                        ScrollView {
+    //                            if selectedPicker == 0 {
+    //                                ForEach(filteredCharacters, id: \.id) { character in
+    //                                    CharactersListView(name: character.name, image: character.image)
+    //                                }
+    //                            } else {
+    //                                ForEach(filteredEpisodes, id: \.id) { episode in
+    //                                    EpisodesPageGridView(name: episode.name , episode: episode.episode)
+    //                                }
+    //                            }
+    //                        }
+    //
+    //                    }
+    //                }
+    //                .navigationTitle("Search")
+    //                .searchable(text: $searchedText, placement: .automatic, prompt: selectedPicker == 0 ? "Searc Characters" : "Search Episodes")
+    //                .onChange(of: selectedPicker) {
+    //                    searchedText = ""
+    //                }
+    //            }
+    //        }
+    //    }
 }
 
 #Preview {
