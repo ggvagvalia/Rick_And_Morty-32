@@ -2,8 +2,9 @@
 
 This project is a SwiftUI-based application that interacts with an API to display information about characters and episodes. The app consists of three main pages, allowing users to browse through characters, episodes, and perform search functionality.
 
-<img width="422" alt="Screenshot 2024-09-22 at 11 38 58 PM" src="https://github.com/user-attachments/assets/3bf7e299-9e0e-4e83-acf7-ae077d0e9c49">
-<img width="422" alt="Screenshot 2024-09-22 at 11 39 54 PM" src="https://github.com/user-attachments/assets/b45352ae-faf1-40cb-9bd4-f0758acbb94f">
+<img width="421" alt="Screenshot 2024-09-23 at 12 03 44 AM" src="https://github.com/user-attachments/assets/68832d46-218a-4901-b2f3-d4e405624b0e">
+<img width="413" alt="Screenshot 2024-09-23 at 12 03 26 AM" src="https://github.com/user-attachments/assets/3d3d5e49-226d-4b8e-bf32-22e1246b758d">
+
 
 ### Design
 
